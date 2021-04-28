@@ -3,9 +3,9 @@ package snake;
 import java.util.Arrays;
 
 public class Grid {
-    String[][] grid;
-    int nRows;
-    int nCols;
+    private String[][] grid;
+    private int nRows;
+    private int nCols;
 
     public Grid(int nRows, int nCols) {
         this.nRows = nRows;
@@ -68,4 +68,6 @@ public class Grid {
     public String getCell(int y, int x) {
         return grid[y][x];
     }
+
+
 }

@@ -1,10 +1,10 @@
 package snake;
 
 public class Snake {
-    int[] pos;
+    private int[] pos;
     int[] speed;
     String color;
-    int size;
+    private int size;
     boolean alive;
 
     Snake(int[] pos, int[] speed, String color) {
@@ -25,10 +25,10 @@ public class Snake {
 
     public int[] getNextPosition() {
 
-        int[] nextPos = new int[2];
-        nextPos[0] = this.pos[0] + this.speed[0];
-        nextPos[1] = this.pos[1] + this.speed[1];
-        return nextPos;
+        int[] nextPosition = new int[2];
+        nextPosition[0] = this.pos[0] + this.speed[0];
+        nextPosition[1] = this.pos[1] + this.speed[1];
+        return nextPosition;
     }
 
     public void turnRight() {
@@ -72,8 +72,24 @@ public class Snake {
     }
 
     public void moveOn(Grid grid) {
-        if(getNextPosition()[0] == grid.getNRows()) {
 
-        };
+        if (getNextPosition()[0] == grid.getNRows()) {
+            this.pos[0] = 0;
+        } else if (getNextPosition()[0] < 0) {
+            this.pos[0] = grid.getNRows() - 1;
+        } else if (getNextPosition()[1] == grid.getNCols()) {
+            this.pos[1] = 0;
+        } else if (getNextPosition()[1] < 0) {
+            this.pos[1] = grid.getNCols() - 1;
+        } else {
+            this.pos[0] = getNextPosition()[0];
+            this.pos[1] = getNextPosition()[1];
+        }
+
+        if (grid.getCell(pos[0], pos[1]).equals("#") || grid.getCell(pos[0], pos[1]).equals("*")) {
+            killSnake();
+        } else if (grid.getCell(pos[0], pos[1]).equals("o")) {
+            size++;
+        }
     }
 }
