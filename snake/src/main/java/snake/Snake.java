@@ -7,7 +7,7 @@ public class Snake {
     private int size;
     boolean alive;
 
-    Snake(int[] pos, int[] speed, String color) {
+    public Snake(int[] pos, int[] speed, String color) {
         this.pos = pos;
         this.speed = speed;
         this.color = color;
