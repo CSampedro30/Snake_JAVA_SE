@@ -117,7 +117,7 @@ public class Grid {
         for (int r = 0; r < nRows; r++) {
             for (int c = 0; c < nCols; c++) {
                 if (intGrid[r][c] > 0) {
-                    grid[y][x] = "*";
+                    grid[r][c] = "*";
                 }
             }
         }
