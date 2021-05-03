@@ -1,7 +1,9 @@
+import org.json.simple.JSONObject;
 import snake.Grid;
 import snake.Snake;
 
-import java.lang.Thread;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
@@ -34,6 +36,20 @@ public class Main {
             counter++;
         }
         System.out.println(s.getSize());
+
+
+        JSONObject obj = new JSONObject();
+        obj.put("name", "Bobby");
+        obj.put("size", s.getSize());
+        obj.put("Nb of turns", counter);
+
+        try (FileWriter file = new FileWriter("snake.json")) {
+            file.write(obj.toJSONString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        System.out.print(obj);
     }
 }
 

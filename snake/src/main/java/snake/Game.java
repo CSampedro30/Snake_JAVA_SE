@@ -2,8 +2,8 @@ package snake;
 
 import org.json.simple.JSONObject;
 
-import java.awt.event.*;
 import javax.swing.*;
+import java.awt.event.*;
 import java.io.FileWriter;
 import java.io.IOException;
 

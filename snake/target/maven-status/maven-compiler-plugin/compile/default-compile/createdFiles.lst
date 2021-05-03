@@ -1,1 +1,6 @@
+snake/Snake.class
+snake/Game$1.class
 Main.class
+snake/Grid.class
+snake/GridActionListener.class
+snake/Game.class
